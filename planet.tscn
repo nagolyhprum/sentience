@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2648ftk03cd7"]
+
+[ext_resource type="Script" uid="uid://bt3yjtuk0eoko" path="res://planet.gd" id="1_1odxm"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1odxm")

@@ -64,8 +64,7 @@ func _process(delta: float) -> void:
 		
 	space.position.x = x
 	space.position.y = y
-	
-	planet.rotation += delta * PLANET_ROTATION
+
 	
 	
 	
