@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc3em4rb6fwbo"]
+
+[ext_resource type="Texture2D" uid="uid://e5u431xxr5mh" path="res://images/laserBlue02.png" id="1_6vqwg"]
+[ext_resource type="Script" uid="uid://dfp05nagfdv1s" path="res://laser.gd" id="2_g6b45"]
+
+[node name="Laser" type="TextureRect"]
+pivot_offset = Vector2(6, 18)
+texture = ExtResource("1_6vqwg")
+script = ExtResource("2_g6b45")

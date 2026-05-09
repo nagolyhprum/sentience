@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://bynbjtwisdw48"]
+
+[ext_resource type="Shader" uid="uid://birokig4faggt" path="res://background.gdshader" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://b27cxxj2scaw4" path="res://game.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://csivuo7h8er0" path="res://images/blue.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dlo3ser0weem0" path="res://images/playerShip1_blue.png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://dpwdgg81mn2wb" path="res://images/planet00.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bgtfuoa130imp" path="res://images/panel_grey_bolts.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://xo1q8skrev0w" path="res://images/gun00.png" id="7_rj586"]
+[ext_resource type="Texture2D" uid="uid://wlyas0qe01t1" path="res://images/engine2.png" id="8_4d7sh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
+shader = ExtResource("1_0e48y")
+shader_parameter/x = 0.0
+shader_parameter/y = 0.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0hol4")
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_epypp")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_wtcfe")
+stretch_mode = 1
+
+[node name="Space" type="Node2D" parent="."]
+
+[node name="Planet" type="TextureRect" parent="Space"]
+offset_left = 736.0
+offset_top = 177.0
+offset_right = 2016.0
+offset_bottom = 1457.0
+pivot_offset = Vector2(640, 640)
+texture = ExtResource("5_q6r6c")
+
+[node name="Player" type="TextureRect" parent="."]
+offset_left = 527.0
+offset_top = 287.0
+offset_right = 626.0
+offset_bottom = 362.0
+pivot_offset = Vector2(49, 37)
+texture = ExtResource("3_epypp")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 50.0
+offset_top = 224.0
+offset_right = 250.0
+offset_bottom = 424.0
+columns = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer2" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("7_rj586")
+stretch_mode = 3
+flip_v = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer4" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer4"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer5" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer5"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer6" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer6"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer7" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer7"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer7"]
+layout_mode = 2
+texture = ExtResource("8_4d7sh")
+stretch_mode = 3
+flip_v = true
+
+[node name="PanelContainer8" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer8"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="PanelContainer9" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/PanelContainer9"]
+layout_mode = 2
+texture = ExtResource("6_kdubu")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer9"]
+layout_mode = 2
+texture = ExtResource("8_4d7sh")
+stretch_mode = 3
+flip_v = true
