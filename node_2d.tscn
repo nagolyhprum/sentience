@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bynbjtwisdw48"]
+[gd_scene load_steps=18 format=3 uid="uid://bynbjtwisdw48"]
 
 [ext_resource type="Shader" uid="uid://birokig4faggt" path="res://background.gdshader" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b27cxxj2scaw4" path="res://game.gd" id="1_0hol4"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://wlyas0qe01t1" path="res://images/engine2.png" id="8_4d7sh"]
 [ext_resource type="AudioStream" uid="uid://jurjx12gfawb" path="res://sound/laser1.ogg" id="14_nr8wp"]
 [ext_resource type="AudioStream" uid="uid://yvvhk15kwgj5" path="res://sound/thrusterFire_000.ogg" id="15_d2bti"]
+[ext_resource type="PackedScene" uid="uid://yo8vlsw4adlm" path="res://compass.tscn" id="16_ta5nu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("1_0e48y")
@@ -178,3 +179,6 @@ stream = ExtResource("14_nr8wp")
 [node name="ThrusterAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_d2bti")
 parameters/looping = true
+
+[node name="Compass" parent="." instance=ExtResource("16_ta5nu")]
+z_index = 10

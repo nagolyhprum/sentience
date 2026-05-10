@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dfp05nagfdv1s" path="res://laser.gd" id="2_g6b45"]
 
 [node name="Laser" type="TextureRect"]
+z_index = 10
 pivot_offset = Vector2(6, 18)
 texture = ExtResource("1_6vqwg")
 script = ExtResource("2_g6b45")
