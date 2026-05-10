@@ -2,9 +2,8 @@ TODO
 ====
 * [x] Mini solar system
 * [x] Give planets a nice realish orbit
-* [ ] Show current velocity and angular (they should max out)
+* [x] Show current velocity and angular (they should max out)
 * [ ] Asteroid belt
-* [ ] Show mini map
 * [ ] Movable / rotatable ship parts
 * [ ] Bounties to hunt for
 * [ ] Shooting stars
@@ -14,6 +13,7 @@ TODO
 * [ ] Consider lighting from sun
 * [ ] Add ship upgrades
 * [ ] Add secret ending
+* [ ] ~~Show mini map~~
 * [ ] ~~Space stations orbiting planets~~
 * [ ] ~~Show orbits~~
 * [ ] ~~Give planets gravity~~

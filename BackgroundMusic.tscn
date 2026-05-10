@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ii0cnp157lks"]
+
+[ext_resource type="AudioStream" uid="uid://dflha2iq5c8u5" path="res://music/ambientmain_0.ogg" id="1_syabp"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_syabp")
+autoplay = true
+parameters/looping = true

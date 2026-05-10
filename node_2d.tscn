@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bynbjtwisdw48"]
+[gd_scene load_steps=17 format=3 uid="uid://bynbjtwisdw48"]
 
 [ext_resource type="Shader" uid="uid://birokig4faggt" path="res://background.gdshader" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b27cxxj2scaw4" path="res://game.gd" id="1_0hol4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bw0w2vvsctelk" path="res://images/planet02.png" id="7_hqns4"]
 [ext_resource type="Texture2D" uid="uid://xo1q8skrev0w" path="res://images/gun00.png" id="7_rj586"]
 [ext_resource type="Texture2D" uid="uid://wlyas0qe01t1" path="res://images/engine2.png" id="8_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://jurjx12gfawb" path="res://sound/laser1.ogg" id="14_nr8wp"]
+[ext_resource type="AudioStream" uid="uid://yvvhk15kwgj5" path="res://sound/thrusterFire_000.ogg" id="15_d2bti"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("1_0e48y")
@@ -95,8 +97,10 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("6_kdubu")
 
-[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer2/TextureRect"]
 layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
 texture = ExtResource("7_rj586")
 stretch_mode = 3
 flip_v = true
@@ -136,8 +140,12 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("6_kdubu")
 
-[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer7"]
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer7/TextureRect"]
 layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+rotation = 1.5708
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("8_4d7sh")
 stretch_mode = 3
 flip_v = true
@@ -156,8 +164,17 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("6_kdubu")
 
-[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer9"]
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/PanelContainer9/TextureRect"]
 layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
 texture = ExtResource("8_4d7sh")
 stretch_mode = 3
 flip_v = true
+
+[node name="LaserAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_nr8wp")
+
+[node name="ThrusterAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_d2bti")
+parameters/looping = true

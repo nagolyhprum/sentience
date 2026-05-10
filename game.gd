@@ -18,6 +18,9 @@ var angle : float = 0.0
 
 const laser_scene = preload("res://laser.tscn")
 
+@onready var thruster_audio = $ThrusterAudio
+@onready var laser_audio = $LaserAudio
+
 @onready var player = $Player
 @onready var background = $Background
 @onready var space = $Space
@@ -48,6 +51,12 @@ func _process(delta: float) -> void:
 	player_offset.y += velocity.y * delta
 	velocity = velocity.limit_length(MAX_VELOCITY)
 	
+	if acceleration_angle or acceleration_x or acceleration_y:
+		if not thruster_audio.playing:
+			thruster_audio.play()
+	else:
+		thruster_audio.stop()
+	
 	var current_ticks = Time.get_ticks_msec()
 	
 	if Input.is_action_pressed("shoot"):
@@ -60,6 +69,7 @@ func _process(delta: float) -> void:
 			laser.position.y = -player_offset.y + player.position.y + player.size.y / 2 - laser.size.y / 2
 			laser.rotation = angle
 			cooldown = current_ticks + 1000
+			laser_audio.play()
 	
 	background.material.set_shader_parameter("x", -player_offset.x / PARALLAX)
 	background.material.set_shader_parameter("y", -player_offset.y / PARALLAX)
