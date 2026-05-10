@@ -5,15 +5,15 @@ const ANGULAR_SPEED : float = 5.0
 const BULLET_SPEED : float = 250.0
 const PARALLAX : float = 100_000.0
 const PLANET_ROTATION : float = 0.1
+const MAX_ANGLE_VELOCITY : float = PI
+const MAX_VELOCITY : float = 250
 
-var velocity_x : float = 0.0
-var velocity_y : float = 0.0
+var velocity = Vector2()
 var velocity_angle : float = 0.0
 
 var cooldown = 0
 
-var x : float = 0.0
-var y : float = 0.0
+var player_offset = Vector2()
 var angle : float = 0.0
 
 const laser_scene = preload("res://laser.tscn")
@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("right"):
 		acceleration_angle += ANGULAR_SPEED
 	velocity_angle += acceleration_angle * delta
+	velocity_angle = clamp(velocity_angle, -MAX_ANGLE_VELOCITY, MAX_ANGLE_VELOCITY)
 	angle += velocity_angle * delta
 	player.rotation = angle
 	
@@ -41,10 +42,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("down"):
 		acceleration_x += DIRECTIONAL_SPEED * sin(angle)
 		acceleration_y += -DIRECTIONAL_SPEED * cos(angle)
-	velocity_x += acceleration_x * delta
-	x += velocity_x * delta
-	velocity_y += acceleration_y * delta
-	y += velocity_y * delta
+	velocity.x += acceleration_x * delta
+	player_offset.x += velocity.x * delta
+	velocity.y += acceleration_y * delta
+	player_offset.y += velocity.y * delta
+	velocity = velocity.limit_length(MAX_VELOCITY)
 	
 	var current_ticks = Time.get_ticks_msec()
 	
@@ -52,18 +54,61 @@ func _process(delta: float) -> void:
 		if current_ticks > cooldown:
 			var laser = laser_scene.instantiate()
 			space.add_child(laser)
-			laser.velocity_x = velocity_x + BULLET_SPEED * sin(angle)
-			laser.velocity_y = velocity_y - BULLET_SPEED * cos(angle)
-			laser.position.x = -x + player.position.x + player.size.x / 2 - laser.size.x / 2
-			laser.position.y = -y + player.position.y + player.size.y / 2 - laser.size.y / 2
+			laser.velocity_x = velocity.x + BULLET_SPEED * sin(angle)
+			laser.velocity_y = velocity.y - BULLET_SPEED * cos(angle)
+			laser.position.x = -player_offset.x + player.position.x + player.size.x / 2 - laser.size.x / 2
+			laser.position.y = -player_offset.y + player.position.y + player.size.y / 2 - laser.size.y / 2
 			laser.rotation = angle
 			cooldown = current_ticks + 1000
 	
-	background.material.set_shader_parameter("x", -x / PARALLAX)
-	background.material.set_shader_parameter("y", -y / PARALLAX)
+	background.material.set_shader_parameter("x", -player_offset.x / PARALLAX)
+	background.material.set_shader_parameter("y", -player_offset.y / PARALLAX)
 		
-	space.position.x = x
-	space.position.y = y
+	space.position.x = player_offset.x
+	space.position.y = player_offset.y
+	
+	queue_redraw()
+	
+func _draw():
+	var radius = 100
+	var center = Vector2(150,110)
+	draw_circle(
+		center, 
+		100, 
+		Color.RED, 
+		true, 
+		-1, 
+		true
+	)
+	var angle_percent : float = velocity_angle / MAX_ANGLE_VELOCITY
+	draw_arc(
+		center, 
+		radius - 10, 
+		-PI / 2, 
+		-PI / 2 + PI / 2 * angle_percent, 
+		32, 
+		Color.BLUE, 
+		5, 
+		true
+	)
+	var length = velocity.length()
+	var velocity_offset = velocity.limit_length((radius - 30) * length / MAX_VELOCITY)
+	draw_circle(
+		center - velocity_offset,
+		10,
+		Color.BLUE,
+		true,
+		-1,
+		true
+	)
+	draw_circle(
+		center + (player_offset - player.position).normalized() * radius,
+		5,
+		Color.YELLOW,
+		true,
+		-1,
+		true
+	)
 
 	
 	

@@ -33,8 +33,12 @@ stretch_mode = 1
 [node name="Space" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="Space"]
-position = Vector2(335, 176)
 scale = Vector2(0.05, 0.05)
+
+[node name="Sun" type="TextureRect" parent="Space/Node2D"]
+offset_right = 865.0
+offset_bottom = 865.0
+texture = ExtResource("5_4d7sh")
 
 [node name="Mercury" parent="Space/Node2D" instance=ExtResource("5_ir8iy")]
 texture = ExtResource("6_0h7mo")
@@ -59,12 +63,6 @@ texture = ExtResource("7_hqns4")
 diameter = 4.2
 distance = 142.0
 days_per_orbit = 687.0
-
-[node name="Sun" type="TextureRect" parent="Space/Node2D"]
-z_index = 100
-offset_right = 865.0
-offset_bottom = 865.0
-texture = ExtResource("5_4d7sh")
 
 [node name="Player" type="TextureRect" parent="."]
 z_index = 5
