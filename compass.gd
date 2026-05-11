@@ -70,7 +70,7 @@ func _draw() -> void:
 		true
 	)
 	draw_circle(
-		center + (State.player_offset - Constant.PLAYER_POSITION).normalized() * (radius - 20),
+		center + (State.player_offset - Constant.PLAYER_POSITION - Constant.HALF_PLAYER_SIZE).normalized() * (radius - 20),
 		radius / 20,
 		green,
 		true,

@@ -8,3 +8,4 @@ const PLANET_ROTATION : float = 0.1
 const MAX_ANGLE_VELOCITY : float = PI
 const MAX_VELOCITY : float = 250
 const PLAYER_POSITION = Vector2(527.0, 287.0)
+const HALF_PLAYER_SIZE = Vector2(99.0 / 2.0, 75.0 / 2.0)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://booxrytc0iwkh"]
+
+[ext_resource type="Texture2D" uid="uid://bgtfuoa130imp" path="res://images/panel_grey_bolts.png" id="1_mn0ys"]
+
+[node name="Panel" type="NinePatchRect"]
+z_index = 100
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_mn0ys")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
