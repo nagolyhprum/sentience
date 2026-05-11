@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bynbjtwisdw48"]
+[gd_scene load_steps=23 format=3 uid="uid://bynbjtwisdw48"]
 
 [ext_resource type="Shader" uid="uid://birokig4faggt" path="res://background.gdshader" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b27cxxj2scaw4" path="res://game.gd" id="1_0hol4"]
@@ -17,6 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://yvvhk15kwgj5" path="res://sound/thrusterFire_000.ogg" id="15_d2bti"]
 [ext_resource type="PackedScene" uid="uid://yo8vlsw4adlm" path="res://compass.tscn" id="16_ta5nu"]
 [ext_resource type="PackedScene" uid="uid://p1g5k3w8atel" path="res://button.tscn" id="17_flf07"]
+[ext_resource type="Texture2D" uid="uid://dnhbokb7ftden" path="res://images/pencil-fill.svg" id="18_7vxoj"]
+[ext_resource type="Texture2D" uid="uid://b27qsmg6ns3ax" path="res://images/check-line.svg" id="19_ei405"]
+[ext_resource type="Texture2D" uid="uid://basjywlu0slqx" path="res://images/clockwise-fill.svg" id="20_e8dv2"]
+[ext_resource type="Texture2D" uid="uid://6oork1d7gjq2" path="res://images/delete-bin-fill.svg" id="21_2nhjh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("1_0e48y")
@@ -209,12 +213,72 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer2/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_7vxoj")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/GridContainer2/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_ei405")
+
 [node name="Button2" parent="Panel/GridContainer2" instance=ExtResource("17_flf07")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer2/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_e8dv2")
+
 [node name="Button3" parent="Panel/GridContainer2" instance=ExtResource("17_flf07")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer2/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_2nhjh")

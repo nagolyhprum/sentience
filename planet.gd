@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		z_index = -z
 	else:
 		z_index = z
-	z_index = -5
 	scale.x = diameter + scale_offset 
 	scale.y = diameter + scale_offset
 	pivot_offset = half_size
