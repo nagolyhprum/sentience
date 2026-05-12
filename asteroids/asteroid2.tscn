@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://5y504rwpvvmk"]
+
+[ext_resource type="PackedScene" uid="uid://bihw0q86bcmj2" path="res://asteroids/asteroid.tscn" id="1_4c2y2"]
+[ext_resource type="Texture2D" uid="uid://colq1wyhil724" path="res://images/meteorBrown_big2.png" id="2_r3q80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6i15"]
+size = Vector2(120, 98)
+
+[node name="Asteroid" instance=ExtResource("1_4c2y2")]
+pivot_offset = Vector2(60, 49)
+texture = ExtResource("2_r3q80")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-67, 30)
+shape = SubResource("RectangleShape2D_v6i15")

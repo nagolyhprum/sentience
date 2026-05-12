@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bynbjtwisdw48"]
+[gd_scene load_steps=24 format=3 uid="uid://bynbjtwisdw48"]
 
 [ext_resource type="Shader" uid="uid://birokig4faggt" path="res://background.gdshader" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b27cxxj2scaw4" path="res://game.gd" id="1_0hol4"]
 [ext_resource type="Texture2D" uid="uid://csivuo7h8er0" path="res://images/blue.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://dlo3ser0weem0" path="res://images/playerShip1_blue.png" id="3_epypp"]
+[ext_resource type="Script" uid="uid://iqobhyuunblh" path="res://space.gd" id="4_ei405"]
 [ext_resource type="Texture2D" uid="uid://cuxi1k8b8nfca" path="res://images/sun_shiny.png" id="5_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://b2648ftk03cd7" path="res://planet.tscn" id="5_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://dpwdgg81mn2wb" path="res://images/planet00.png" id="5_q6r6c"]
@@ -39,6 +40,7 @@ texture = ExtResource("1_wtcfe")
 stretch_mode = 1
 
 [node name="Space" type="Node2D" parent="."]
+script = ExtResource("4_ei405")
 
 [node name="Node2D" type="Node2D" parent="Space"]
 scale = Vector2(0.05, 0.05)
@@ -73,6 +75,8 @@ texture = ExtResource("7_hqns4")
 diameter = 4.2
 distance = 142.0
 days_per_orbit = 687.0
+
+[node name="Asteroids" type="Node2D" parent="Space"]
 
 [node name="Player" type="TextureRect" parent="."]
 z_index = 15

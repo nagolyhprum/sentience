@@ -1,10 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc3em4rb6fwbo"]
+[gd_scene load_steps=5 format=3 uid="uid://bc3em4rb6fwbo"]
 
 [ext_resource type="Texture2D" uid="uid://e5u431xxr5mh" path="res://images/laserBlue02.png" id="1_6vqwg"]
 [ext_resource type="Script" uid="uid://dfp05nagfdv1s" path="res://laser.gd" id="2_g6b45"]
+[ext_resource type="AudioStream" uid="uid://by86j13ytp21u" path="res://sound/explosionCrunch_000.ogg" id="3_g6b45"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vqwg"]
+radius = 6.5
+height = 38.5
 
 [node name="Laser" type="TextureRect"]
 z_index = 10
 pivot_offset = Vector2(6, 18)
 texture = ExtResource("1_6vqwg")
 script = ExtResource("2_g6b45")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.5, 18.5)
+shape = SubResource("CapsuleShape2D_6vqwg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g6b45")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

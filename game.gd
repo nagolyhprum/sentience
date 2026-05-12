@@ -10,6 +10,10 @@ const laser_scene = preload("res://laser.tscn")
 @onready var space = $Space
 @onready var planet = $Space/Planet
 
+func _ready() -> void:
+	player.position = Constant.PLAYER_POSITION
+	player.size = 2 * Constant.HALF_PLAYER_SIZE
+
 func _process(delta: float) -> void:
 	var acceleration_angle : float = 0.0
 	if Input.is_action_pressed("left"):
